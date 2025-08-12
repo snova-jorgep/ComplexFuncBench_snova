@@ -14,6 +14,7 @@ from utils.logger import Logger
 from utils.utils import *
 
 from runner.gpt_runner import GPTRunner
+from runner.openai_compatible_runner import OpenAICompatibleRunner
 from runner.glm_runner import GLMRunner, GLMAPIRunner
 from runner.claude_runner import ClaudeRunner
 from runner.qwen_runner import QwenRunner
@@ -22,6 +23,7 @@ from runner.mistral_runner import MistralRunner
 from runner.response_runner import RespEvalRunner
 
 MODEL_MAPPING = {
+    "sambanova/Meta-Llama-3.3-70B-Instruct": OpenAICompatibleRunner,
     "gpt-4o-2024-08-06": GPTRunner,
     "gpt-4-turbo-2024-04-09": GPTRunner,
     "claude-3-5-sonnet-20240620": ClaudeRunner,

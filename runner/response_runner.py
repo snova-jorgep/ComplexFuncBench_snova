@@ -1,7 +1,8 @@
 import json
 import copy
 from utils.utils import *
-from models.gpt import GPTModel
+# from models.gpt import GPTModel
+from models.openai_compatible import OpenAICompatibleModel
 
 from prompts.response import (
     complete_system_prompt, 
@@ -13,7 +14,7 @@ from prompts.response import (
 class RespEvalRunner:
     def __init__(self, args, logger):
         self.logger = logger
-        self.model = GPTModel("gpt-4o-2024-08-06")
+        self.model = OpenAICompatibleModel("sambanova/Meta-Llama-3.3-70B-Instruct")
 
     @retry(max_attempts=10)
     def completeness_eval(self, **kwargs):
